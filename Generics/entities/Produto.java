@@ -1,16 +1,15 @@
 package entities;
 
-import java.util.Date;
 import java.util.Objects;
 
-public class Cadastro {
+public class Produto {
 
 	private String name;
-	private Date data;
-
-	public Cadastro(String name, Date data) {
+	private Double price;
+	
+	public Produto(String name, Double price) {
 		this.name = name;
-		this.data = data;
+		this.price = price;
 	}
 
 	public String getName() {
@@ -21,17 +20,17 @@ public class Cadastro {
 		this.name = name;
 	}
 
-	public Date getData() {
-		return data;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name);
+		return Objects.hash(name, price);
 	}
 
 	@Override
@@ -42,7 +41,7 @@ public class Cadastro {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cadastro other = (Cadastro) obj;
-		return Objects.equals(name, other.name);
+		Produto other = (Produto) obj;
+		return Objects.equals(name, other.name) && Objects.equals(price, other.price);
 	}
 }

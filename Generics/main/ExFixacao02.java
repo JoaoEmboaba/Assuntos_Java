@@ -7,35 +7,34 @@ import java.util.Set;
 public class ExFixacao02 {
 
 	public static void main(String[] args) {
-
+		
 		Scanner read = new Scanner(System.in);
 		Set<Integer> students = new HashSet<>();
-		int studentCode = 0;
-
-		System.out.println("How many students for course A?");
+		
+		System.out.print("How many students for course A?");
 		int qtdA = read.nextInt();
-
-		for (int i = 0; i < qtdA; i++) {
-			studentCode = read.nextInt();
-			students.add(studentCode);
+		
+		for(int i = 1; i<=qtdA; i++) {
+			int values = read.nextInt();
+			students.add(values);
 		}
-
-		System.out.println("How many students for course B?");
+		
+		System.out.print("\nHow many students for course B?");
 		int qtdB = read.nextInt();
-
-		for (int i = 0; i < qtdB; i++) {
-			studentCode = read.nextInt();
-			students.add(studentCode);
+		
+		for(int i = 1; i<=qtdB; i++) {
+			int values = read.nextInt();
+			students.add(values);
 		}
-
-		System.out.println("How many students for course C?");
+		
+		System.out.print("\nHow many students for course C?");
 		int qtdC = read.nextInt();
-
-		for (int i = 0; i < qtdC; i++) {
-			studentCode = read.nextInt();
-			students.add(studentCode);
+		
+		for(int i = 1; i<=qtdC; i++) {
+			int values = read.nextInt();
+			students.add(values);
 		}
-
+		
 		System.out.println("\nTotal students: " + students.size());
 	}
 }

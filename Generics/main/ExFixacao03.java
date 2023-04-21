@@ -1,7 +1,6 @@
 package main;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,9 +27,11 @@ public class ExFixacao03 {
 				if (candidatos.containsKey(fields[0])) {
 					int soma = candidatos.get(fields[0]);
 					candidatos.put(fields[0], count + soma);
+
 				} else {
 
 					candidatos.put(fields[0], Integer.parseInt(fields[1]));
+
 				}
 
 				line = br.readLine();
