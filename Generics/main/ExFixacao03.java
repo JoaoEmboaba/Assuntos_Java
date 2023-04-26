@@ -9,42 +9,40 @@ import java.util.Scanner;
 
 public class ExFixacao03 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		Scanner read = new Scanner(System.in);
 		Map<String, Integer> candidatos = new HashMap<>();
 
-		System.out.println("Enter the file path: ");
+		System.out.print("Enter the file path: ");
 		String path = read.next();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-
 			String line = br.readLine();
-
 			while (line != null) {
-				String[] fields = line.split(",");
+				String fields[] = line.split(",");
 				int count = Integer.parseInt(fields[1]);
 				if (candidatos.containsKey(fields[0])) {
 					int soma = candidatos.get(fields[0]);
 					candidatos.put(fields[0], count + soma);
-
 				} else {
-
-					candidatos.put(fields[0], Integer.parseInt(fields[1]));
-
+					candidatos.put(fields[0], count);
 				}
 
 				line = br.readLine();
 			}
 
-			for (String candidato : candidatos.keySet()) {
-				System.out.println(candidato + ": " + candidatos.get(candidato));
+			System.out.println();
+
+			for (String nomes : candidatos.keySet()) {
+				System.out.println(nomes + ": " + candidatos.get(nomes));
 			}
 
 		} catch (IOException ex) {
-			throw new IOException(ex.getCause());
+			System.out.println(ex.getMessage());
 		}
 
 		read.close();
+
 	}
 }
