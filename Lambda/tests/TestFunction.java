@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-import entities.FunctionInsideFunction;
-import entities.Product;
-import entities.ProductFunction;
+import entitie.FunctionInsideFunction;
+import entitie.Product;
+import entitie.ProductFunction;
 
 public class TestFunction {
 

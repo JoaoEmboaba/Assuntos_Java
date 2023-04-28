@@ -1,11 +1,12 @@
-package entities;
 
-public class Products01 {
+package entitie;
+
+public class Product {
 
 	private String nome;
 	private Double preco;
 
-	public Products01(String nome, Double preco) {
+	public Product(String nome, Double preco) {
 		this.nome = nome;
 		this.preco = preco;
 	}
@@ -25,6 +26,9 @@ public class Products01 {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "" + nome + ", " + String.format("%.2f", preco);
+	}
 }

@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import entities.Products01;
+import entitie.Products01;
 
 public class Ex_Fixacao01 {
 

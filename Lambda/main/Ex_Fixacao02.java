@@ -8,7 +8,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import entities.Funcionarios;
+import entitie.Employee;
 
 public class Ex_Fixacao02 {
 
@@ -20,35 +20,36 @@ public class Ex_Fixacao02 {
 		System.out.print("Enter the file path: ");
 		String path = read.next();
 
-		System.out.print("Enter the minimum salary: ");
-		float num = read.nextFloat();
+		System.out.print("Enter the salary: ");
+		float salaryy = read.nextFloat();
 
-		List<Funcionarios> funcionarios = new ArrayList<>();
+		List<Employee> funcionarios = new ArrayList<>();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+
 			String line = br.readLine();
 			while (line != null) {
 				String fields[] = line.split(",");
-				funcionarios.add(new Funcionarios(fields[0], fields[1], Float.parseFloat(fields[2])));
+				funcionarios.add(new Employee(fields[0], fields[1], Float.parseFloat(fields[2])));
 				line = br.readLine();
 			}
 
-			List<String> emails = funcionarios.stream().filter(x -> x.getSalario() > num).map(x -> x.getEmail())
+			List<String> emails = funcionarios.stream().filter(x -> x.getSalary() > salaryy).map(x -> x.getEmail())
 					.sorted().collect(Collectors.toList());
 
-			System.out.printf("\nList of emails of people whose salary is greater than %.2f: ", num);
+			System.out.printf("\nEmployee's emails whose salary is greater than %.2f: ", salaryy);
 
 			System.out.println();
-			
+
 			emails.forEach(System.out::println);
 
-			float sum = funcionarios.stream().filter(x -> x.getNome().charAt(0) == 'M').map(x -> x.getSalario())
+			Float sum = funcionarios.stream().filter(x -> x.getName().charAt(0) == 'M').map(x -> x.getSalary())
 					.reduce(0.0f, (x, y) -> x + y);
 
-			System.out.printf("\nSum of salary of people whose the name starts with 'M': R$%.2f", sum);
+			System.out.printf("\nThe sum of salary of people whose the name starts with 'M': R$%.2f", sum);
 
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception ex) {
+			System.out.println(ex.fillInStackTrace());
 		}
 
 		read.close();

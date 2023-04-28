@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import entities.ProductConsumer;
-import entities.Product;
+import entitie.Product;
+import entitie.ProductConsumer;
 
 public class Consumer {
 

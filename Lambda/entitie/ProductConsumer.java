@@ -1,4 +1,4 @@
-package entities;
+package entitie;
 
 import java.util.function.Consumer;
 
